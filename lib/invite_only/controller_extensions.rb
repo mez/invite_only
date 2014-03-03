@@ -11,7 +11,7 @@ module InviteOnly
         #identifier: type=string
         def create_invite_code_for(identifier)
           #if email has been invited before, just update with new code.
-          invite = Invite.find_or_initialize_by identifier:identifier
+          invite = Invite.find_by_identifier(identifier) || Invite.new(identifier:identifier)
           #code is only valid for the identifier provided and can only be used once.
           invite.is_used=false
           invite.code=SecureRandom.urlsafe_base64

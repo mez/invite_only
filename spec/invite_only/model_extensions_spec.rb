@@ -91,7 +91,7 @@ describe InviteOnly do
 
       it 'should set is_used to true after create' do
         Account.create(username:'yeezus', invite_code:'kimk')
-        expect(Invite.find_by(code:'kimk').is_used).to be true
+        expect(Invite.find_by_code('kimk').is_used).to be true
       end
     end
   end

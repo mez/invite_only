@@ -114,3 +114,348 @@ D, [2014-03-03T10:28:40.631446 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)
 D, [2014-03-03T10:28:40.631902 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5[0m  [["is_used", true]]
 D, [2014-03-03T10:28:40.632197 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
 D, [2014-03-03T10:28:40.632453 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.150331 #35280] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
+D, [2014-03-03T12:47:37.151357 #35280] DEBUG -- :   [1m[35m (0.2ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
+D, [2014-03-03T12:47:37.156305 #35280] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
+D, [2014-03-03T12:47:37.158790 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2014-03-03T12:47:37.159180 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-03-03T12:47:37.159343 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+D, [2014-03-03T12:47:37.159499 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+D, [2014-03-03T12:47:37.196895 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
+D, [2014-03-03T12:47:37.197112 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:47:37.197248 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+D, [2014-03-03T12:47:37.197382 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
+D, [2014-03-03T12:47:37.197609 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+D, [2014-03-03T12:47:37.197921 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
+D, [2014-03-03T12:47:37.198166 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "invites";
+D, [2014-03-03T12:47:37.198399 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:47:37.198601 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
+D, [2014-03-03T12:47:37.199712 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.199900 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
+D, [2014-03-03T12:47:37.200114 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.210538 #35280] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.211328 #35280] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.211913 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.212464 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.212904 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.218477 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.219832 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "yeezus"]]
+D, [2014-03-03T12:47:37.220294 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.221483 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5  [["is_used", true]]
+D, [2014-03-03T12:47:37.221891 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.223223 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:47:37.223875 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.223999 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:47:37.224136 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.224804 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.225240 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.225643 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.226050 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.226438 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.227259 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.227672 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.227785 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:47:37.227906 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.228389 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.228776 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.229195 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.229583 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.229967 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.230511 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
+D, [2014-03-03T12:47:37.230898 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
+D, [2014-03-03T12:47:37.231061 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T12:47:37.231449 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.231549 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:47:37.231663 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.232112 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.232513 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.232892 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.233278 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.233661 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.234150 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.234483 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "yeezus"]]
+D, [2014-03-03T12:47:37.234791 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.235185 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5  [["is_used", true]]
+D, [2014-03-03T12:47:37.235657 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:47:37.236025 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:47:37.236216 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.236594 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.236696 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:47:37.236807 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.237256 #35280] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.237656 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.238031 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.238417 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.238828 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.239298 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'bar' LIMIT 1
+D, [2014-03-03T12:47:37.248834 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.249424 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.249545 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:47:37.249659 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.250452 #35280] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.250863 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.251268 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.251663 #35280] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.252075 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.254874 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:47:37.255251 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T12:47:37.256037 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email") VALUES (?)  [["email", "user@example.com"]]
+D, [2014-03-03T12:47:37.256358 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T12:47:37.256870 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1  [["is_used", true]]
+D, [2014-03-03T12:47:37.257176 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T12:47:37.257864 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1
+D, [2014-03-03T12:47:37.258226 #35280] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
+D, [2014-03-03T12:47:37.258567 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1
+D, [2014-03-03T12:47:37.259597 #35280] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2[0m  [["is_used", true]]
+D, [2014-03-03T12:47:37.260163 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:47:37.261179 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.261371 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
+D, [2014-03-03T12:47:37.261561 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:47:37.262500 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:47:37.263255 #35280] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:47:37.263930 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:47:37.264599 #35280] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:47:37.265273 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:47:37.266184 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1[0m
+D, [2014-03-03T12:47:37.266869 #35280] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1
+D, [2014-03-03T12:47:37.267247 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.268102 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.268272 #35280] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:47:37.268468 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.268847 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:47:37.273988 #35280] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.274178 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:47:37.274313 #35280] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:47:37.297732 #35280] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."identifier" = 'Doug.Butabi' LIMIT 1[0m
+D, [2014-03-03T12:47:37.298450 #35280] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "O9zNZrQISdJ9xFLeEqLgOA"], ["identifier", "Doug.Butabi"]]
+D, [2014-03-03T12:47:37.305654 #35280] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.152957 #35364] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
+D, [2014-03-03T12:48:20.153510 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
+D, [2014-03-03T12:48:20.155428 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
+D, [2014-03-03T12:48:20.156530 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2014-03-03T12:48:20.156844 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-03-03T12:48:20.157000 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+D, [2014-03-03T12:48:20.157139 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+D, [2014-03-03T12:48:20.181684 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "users";
+D, [2014-03-03T12:48:20.181856 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:48:20.181986 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+D, [2014-03-03T12:48:20.182108 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
+D, [2014-03-03T12:48:20.182225 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+D, [2014-03-03T12:48:20.182356 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
+D, [2014-03-03T12:48:20.182460 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
+D, [2014-03-03T12:48:20.182580 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:48:20.182704 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
+D, [2014-03-03T12:48:20.183412 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.183527 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:48:20.183658 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.189810 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.190374 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.190809 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.191259 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.191692 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.196691 #35364] DEBUG -- :   [1m[36mInvite Load (0.2ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1[0m
+D, [2014-03-03T12:48:20.197716 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1
+D, [2014-03-03T12:48:20.198027 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.198626 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.198743 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.198875 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.199558 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.200020 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.200464 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.200883 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.201305 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.201967 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.202927 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "yeezus"]]
+D, [2014-03-03T12:48:20.203336 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.204370 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5[0m  [["is_used", true]]
+D, [2014-03-03T12:48:20.204966 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.205353 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:48:20.205609 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:48:20.206073 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.206201 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:48:20.206337 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.206873 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.207281 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.207683 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.208085 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.208471 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.208972 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
+D, [2014-03-03T12:48:20.209314 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
+D, [2014-03-03T12:48:20.209485 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.209819 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.209950 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.210070 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.210539 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.210962 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.211383 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.211792 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.212175 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.213008 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T12:48:20.213447 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.213557 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:48:20.213680 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:48:20.214269 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.214713 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.215124 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.215554 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.216039 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.219129 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T12:48:20.219577 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:48:20.220531 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
+D, [2014-03-03T12:48:20.220948 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:48:20.221492 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
+D, [2014-03-03T12:48:20.221830 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:48:20.222677 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T12:48:20.223120 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "2chanz"]]
+D, [2014-03-03T12:48:20.223467 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T12:48:20.223973 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2  [["is_used", true]]
+D, [2014-03-03T12:48:20.224302 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.224927 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.225042 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.225186 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.225797 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.226246 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.226678 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.227093 #35364] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.227520 #35364] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.228096 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'bar' LIMIT 1
+D, [2014-03-03T12:48:20.237523 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.238635 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.238872 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.239077 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.240448 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:48:20.241182 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:48:20.241933 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:48:20.242593 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:48:20.243261 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:48:20.244469 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.245156 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "yeezus"]]
+D, [2014-03-03T12:48:20.245719 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.246503 #35364] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5[0m  [["is_used", true]]
+D, [2014-03-03T12:48:20.247053 #35364] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:48:20.248104 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.248793 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.248973 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.249186 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.249627 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:48:20.253790 #35364] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.253923 #35364] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:48:20.254037 #35364] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:48:20.276694 #35364] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."identifier" = 'Doug.Butabi' LIMIT 1[0m
+D, [2014-03-03T12:48:20.277455 #35364] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "HlUIn0A_6YJRQG7NsPMoWw"], ["identifier", "Doug.Butabi"]]
+D, [2014-03-03T12:48:20.281683 #35364] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:52:48.372936 #35468] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
+D, [2014-03-03T12:52:48.373611 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
+D, [2014-03-03T12:52:48.375628 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
+D, [2014-03-03T12:52:48.376818 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2014-03-03T12:52:48.377129 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-03-03T12:52:48.377289 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+D, [2014-03-03T12:52:48.377425 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+D, [2014-03-03T12:52:48.404639 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
+D, [2014-03-03T12:52:48.404808 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:52:48.404940 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+D, [2014-03-03T12:52:48.405073 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
+D, [2014-03-03T12:52:48.405191 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+D, [2014-03-03T12:52:48.405311 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
+D, [2014-03-03T12:52:48.405424 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
+D, [2014-03-03T12:52:48.405538 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T12:52:48.405653 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
+D, [2014-03-03T12:52:48.408850 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.408970 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.409107 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.433474 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."identifier" = 'Doug.Butabi' LIMIT 1
+D, [2014-03-03T12:52:48.438446 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "X6C-1DpNfwWIjudSpzgTng"], ["identifier", "Doug.Butabi"]]
+D, [2014-03-03T12:52:48.442656 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.443507 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.443623 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.443747 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.444402 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.444875 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.444993 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.445109 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.445736 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.446151 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.446551 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.446931 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.447340 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.450725 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'bar' LIMIT 1[0m
+D, [2014-03-03T12:52:48.462816 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.463690 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.463820 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.463941 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.464716 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.465136 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.465546 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.465927 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.466296 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.469290 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T12:52:48.469852 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:52:48.470617 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
+D, [2014-03-03T12:52:48.470936 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:52:48.471952 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
+D, [2014-03-03T12:52:48.472255 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T12:52:48.473147 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T12:52:48.474584 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "2chanz"]]
+D, [2014-03-03T12:52:48.475149 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T12:52:48.475782 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2  [["is_used", true]]
+D, [2014-03-03T12:52:48.476137 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:52:48.476836 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T12:52:48.476992 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:52:48.477128 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:52:48.478067 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.478610 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.479079 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.479484 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.479902 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.480570 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:52:48.480951 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "yeezus"]]
+D, [2014-03-03T12:52:48.481313 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:52:48.481997 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5[0m  [["is_used", true]]
+D, [2014-03-03T12:52:48.482583 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T12:52:48.483005 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:52:48.483261 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.483782 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.483899 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.484022 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.484665 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.485210 #35468] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.485779 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.486177 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.486556 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.487151 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:52:48.487488 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "yeezus"]]
+D, [2014-03-03T12:52:48.487800 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:52:48.488220 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5  [["is_used", true]]
+D, [2014-03-03T12:52:48.488516 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T12:52:48.488796 #35468] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.489268 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.489372 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.489483 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.490032 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.490466 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.490865 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.491229 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.491638 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.492165 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1[0m
+D, [2014-03-03T12:52:48.492556 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1
+D, [2014-03-03T12:52:48.492839 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T12:52:48.493238 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:52:48.493347 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T12:52:48.493485 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T12:52:48.493946 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.494332 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.494716 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.495090 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.495450 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.495941 #35468] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
+D, [2014-03-03T12:52:48.496281 #35468] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
+D, [2014-03-03T12:52:48.496438 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T12:52:48.496842 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.496955 #35468] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T12:52:48.497071 #35468] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T12:52:48.497612 #35468] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T12:52:48.498021 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T12:52:48.498434 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T12:52:48.498853 #35468] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T12:52:48.499242 #35468] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T12:52:48.499726 #35468] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
