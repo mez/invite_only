@@ -1,638 +1,116 @@
-# Logfile created on 2014-03-01 16:11:34 -0500 by logger.rb/44203
-D, [2014-03-01T16:11:34.748698 #29740] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:11:34.749328 #29740] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:11:34.751285 #29740] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:11:34.752464 #29740] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:11:34.752787 #29740] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:11:34.752959 #29740] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:11:34.753099 #29740] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:16:55.025659 #29804] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:16:55.026311 #29804] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:16:55.028807 #29804] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:16:55.030002 #29804] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:16:55.030319 #29804] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:16:55.030496 #29804] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:16:55.030637 #29804] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:16:55.081656 #29804] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:16:55.081854 #29804] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:16:55.081978 #29804] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:16:55.082110 #29804] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:16:55.082226 #29804] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:16:55.082341 #29804] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:16:55.082444 #29804] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:16:55.082573 #29804] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:16:55.082683 #29804] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:17:12.816231 #29817] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:17:12.816776 #29817] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:17:12.818812 #29817] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:17:12.819963 #29817] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:17:12.820270 #29817] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:17:12.820440 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:17:12.820579 #29817] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:17:12.870634 #29817] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:17:12.870812 #29817] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:17:12.870934 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:17:12.871043 #29817] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:17:12.871198 #29817] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:17:12.871313 #29817] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:17:12.871417 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:17:12.871544 #29817] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:17:12.871656 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:17:12.872238 #29817] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:17:12.872352 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:17:12.872498 #29817] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:17:12.876112 #29817] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:44:13.291749 #29897] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:44:13.292283 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:44:13.294315 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:44:13.295524 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:44:13.295851 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:44:13.296029 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:44:13.296167 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:44:13.347673 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:44:13.347880 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:44:13.348026 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:44:13.348173 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:44:13.348299 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:44:13.348431 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:44:13.348564 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:44:13.348714 #29897] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:44:13.348830 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:44:13.349434 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.349539 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:44:13.349658 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.353220 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:44:13.353780 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.353885 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:44:13.354014 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.359354 #29897] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:44:13.360011 #29897] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:44:13.363096 #29897] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:44:13.363770 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.363898 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:44:13.364018 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.364739 #29897] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:44:13.365167 #29897] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:44:13.367743 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:44:13.368448 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.368553 #29897] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:44:13.368678 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:44:13.369182 #29897] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T16:44:13.369660 #29897] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T16:45:25.267478 #29912] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:45:25.267993 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:45:25.269936 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:45:25.270980 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:45:25.271302 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:45:25.271456 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:45:25.271593 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:45:25.322029 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:45:25.322224 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:45:25.322347 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:45:25.322457 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:45:25.322608 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:45:25.322761 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:45:25.322877 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:45:25.323005 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:45:25.323116 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:45:25.323698 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.323798 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:45:25.323928 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.327525 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:45:25.328115 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.328242 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:45:25.328362 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.331257 #29912] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:45:25.331910 #29912] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:45:25.336614 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:45:25.337405 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.337584 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T16:45:25.337762 #29912] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.338667 #29912] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:45:25.339400 #29912] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:45:25.343056 #29912] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:45:25.343836 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.343984 #29912] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:45:25.344122 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:45:25.344739 #29912] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T16:45:25.345247 #29912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T16:51:25.597013 #29996] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:51:25.597546 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:51:25.599513 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:51:25.600655 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:51:25.600967 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:51:25.601120 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:51:25.601275 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:51:25.655629 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:51:25.655807 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:51:25.655968 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:51:25.656083 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:51:25.656217 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:51:25.656339 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:51:25.656460 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:51:25.656576 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:51:25.656720 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:51:25.657369 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.657503 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T16:51:25.657654 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.665344 #29996] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:51:25.666286 #29996] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:51:25.670858 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:51:25.671779 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.671954 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T16:51:25.672164 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.673190 #29996] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:51:25.673874 #29996] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:51:25.676746 #29996] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:51:25.677519 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.677648 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:51:25.677774 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:51:25.678356 #29996] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T16:51:25.678817 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T16:51:25.679340 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T16:51:25.679488 #29996] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T16:51:25.679600 #29996] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T16:51:25.679826 #29996] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T16:56:53.207416 #30057] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:56:53.207975 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:56:53.209910 #30057] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:56:53.211101 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:56:53.211412 #30057] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:56:53.211594 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:56:53.211736 #30057] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:56:53.265727 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:56:53.265927 #30057] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:56:53.266050 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:56:53.266173 #30057] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:56:53.266347 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:56:53.266463 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:56:53.266567 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:56:53.266689 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:56:53.266805 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:56:53.267373 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.267532 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:56:53.267674 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.273754 #30057] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T16:56:53.280513 #30057] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T16:56:53.281374 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T16:56:53.282137 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.282279 #30057] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T16:56:53.282400 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.283095 #30057] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:56:53.283553 #30057] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:56:53.286192 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:56:53.286715 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.286825 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:56:53.286937 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.287439 #30057] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:56:53.287847 #30057] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:56:53.288416 #30057] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T16:56:53.289282 #30057] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
-D, [2014-03-01T16:56:53.289646 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:56:53.290242 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.290363 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:56:53.290474 #30057] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:56:53.290696 #30057] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:58:22.552185 #30092] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T16:58:22.552714 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T16:58:22.554653 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T16:58:22.555697 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T16:58:22.555999 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T16:58:22.556188 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T16:58:22.556433 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T16:58:22.607033 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T16:58:22.607207 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:58:22.607333 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T16:58:22.607458 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T16:58:22.607575 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T16:58:22.607689 #30092] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T16:58:22.607798 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T16:58:22.607944 #30092] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T16:58:22.608054 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T16:58:22.608622 #30092] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:58:22.608757 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:58:22.608911 #30092] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:58:22.612455 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T16:58:22.613054 #30092] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:58:22.613165 #30092] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T16:58:22.613283 #30092] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T16:58:22.616358 #30092] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T16:58:22.616963 #30092] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T16:58:22.619838 #30092] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:00:07.152219 #30120] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:00:07.152737 #30120] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:00:07.154622 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:00:07.155676 #30120] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:00:07.156004 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:00:07.156158 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:00:07.156320 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:00:07.207387 #30120] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:00:07.207577 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:00:07.207701 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:00:07.207813 #30120] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:00:07.207948 #30120] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:00:07.208064 #30120] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:00:07.208169 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:00:07.208298 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:00:07.208435 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:00:07.209001 #30120] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:00:07.209104 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:00:07.209221 #30120] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:00:07.215644 #30120] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:00:07.216862 #30120] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:00:07.220546 #30120] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:00:07.221423 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:00:07.221547 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:00:07.221687 #30120] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:00:07.221975 #30120] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:02:05.115057 #30157] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:02:05.115607 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:02:05.117991 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:02:05.119146 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:02:05.119481 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:02:05.119640 #30157] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:02:05.119781 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:02:05.177461 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:02:05.177651 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:02:05.177774 #30157] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:02:05.177891 #30157] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:02:05.178034 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:02:05.178157 #30157] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:02:05.178263 #30157] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:02:05.178407 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:02:05.178560 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:02:05.179161 #30157] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:05.179272 #30157] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:02:05.179392 #30157] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:05.184627 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:02:05.185602 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:05.185787 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T17:02:05.185998 #30157] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:05.190708 #30157] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:02:05.191526 #30157] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:02:05.194614 #30157] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:02:54.963388 #30178] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:02:54.963918 #30178] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:02:54.965949 #30178] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:02:54.967053 #30178] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:02:54.967376 #30178] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:02:54.967528 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:02:54.967664 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:02:55.021445 #30178] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:02:55.021625 #30178] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:02:55.021748 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:02:55.021883 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:02:55.022005 #30178] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:02:55.022120 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:02:55.022228 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:02:55.022360 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:02:55.022486 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:02:55.023053 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:55.023156 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:02:55.023287 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:55.030010 #30178] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:02:55.030569 #30178] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:02:55.034284 #30178] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:02:55.035119 #30178] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:55.035237 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:02:55.035361 #30178] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:02:55.035657 #30178] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:05:24.053178 #30254] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:05:24.053734 #30254] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:05:24.055745 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:05:24.056829 #30254] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:05:24.057207 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:05:24.057405 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:05:24.057568 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:05:24.111930 #30254] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:05:24.112106 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:05:24.112234 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:05:24.112368 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:05:24.112485 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:05:24.112603 #30254] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:05:24.112706 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:05:24.112839 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:05:24.112948 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:05:24.113518 #30254] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:05:24.113624 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:05:24.113750 #30254] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:05:24.120111 #30254] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:05:24.121032 #30254] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:05:24.121161 #30254] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:05:24.121297 #30254] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:05:24.124331 #30254] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:05:24.124863 #30254] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:05:24.129151 #30254] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:05:24.130508 #30254] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:05:24.131086 #30254] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:06:48.964972 #30286] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:06:48.965582 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:06:48.967655 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:06:48.968763 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:06:48.969101 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:06:48.969261 #30286] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:06:48.969426 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:06:49.023874 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:06:49.024076 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:06:49.024234 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:06:49.024357 #30286] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:06:49.024490 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:06:49.024630 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:06:49.024741 #30286] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:06:49.024861 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:06:49.024980 #30286] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:06:49.025622 #30286] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:06:49.025739 #30286] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:06:49.025861 #30286] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:06:49.034045 #30286] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:06:49.035079 #30286] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:06:49.042398 #30286] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:06:49.043608 #30286] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:06:49.044030 #30286] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:06:49.044593 #30286] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:06:49.045333 #30286] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:06:49.045443 #30286] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:06:49.045583 #30286] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
-D, [2014-03-01T17:06:49.045823 #30286] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:07:20.083991 #30302] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:07:20.084523 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:07:20.086453 #30302] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:07:20.089063 #30302] DEBUG -- :   [1m[35m (0.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:07:20.089682 #30302] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:07:20.089967 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:07:20.090223 #30302] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:07:20.143702 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:07:20.143910 #30302] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:07:20.144035 #30302] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:07:20.144147 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:07:20.144268 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:07:20.144413 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:07:20.144516 #30302] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:07:20.144629 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:07:20.144754 #30302] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:07:20.145318 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:20.145435 #30302] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:07:20.145556 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:20.149161 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:07:20.149804 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:20.149929 #30302] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:07:20.150055 #30302] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:20.154099 #30302] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:07:20.155128 #30302] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:07:20.162430 #30302] DEBUG -- :   [1m[35mInvite Load (0.2ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:07:20.163785 #30302] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:07:20.164174 #30302] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:07:20.165135 #30302] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
-D, [2014-03-01T17:07:20.165477 #30302] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:07:40.204083 #30315] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:07:40.204649 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:07:40.206657 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:07:40.207770 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:07:40.208100 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:07:40.208250 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:07:40.208427 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:07:40.261724 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:07:40.261904 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:07:40.262050 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:07:40.262162 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:07:40.262281 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:07:40.262396 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:07:40.262524 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:07:40.262639 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:07:40.262761 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:07:40.263338 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.263452 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:07:40.263571 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.274083 #30315] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:07:40.275046 #30315] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:07:40.281707 #30315] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:07:40.283004 #30315] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
-D, [2014-03-01T17:07:40.283408 #30315] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:07:40.284289 #30315] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2[0m  [["is_used", true]]
-D, [2014-03-01T17:07:40.284633 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:07:40.285243 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.285390 #30315] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T17:07:40.285502 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.286086 #30315] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:07:40.286596 #30315] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:07:40.289365 #30315] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:07:40.290251 #30315] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:07:40.290608 #30315] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:07:40.291116 #30315] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
-D, [2014-03-01T17:07:40.291425 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:07:40.292206 #30315] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.292345 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:07:40.292493 #30315] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:07:40.292743 #30315] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:08:08.296046 #30336] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:08:08.296599 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:08:08.298596 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:08:08.299654 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:08:08.299978 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:08:08.300129 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:08:08.300282 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:08:08.353679 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:08:08.353872 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:08:08.353997 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:08:08.354175 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:08:08.354312 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:08:08.354441 #30336] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:08:08.354546 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:08:08.354678 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:08:08.354791 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:08:08.355357 #30336] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.355484 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:08:08.355616 #30336] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.359101 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:08:08.359714 #30336] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.359819 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:08:08.359954 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.364343 #30336] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:08:08.366164 #30336] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:08:08.373533 #30336] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:08:08.375158 #30336] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:08:08.375830 #30336] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:08:08.377010 #30336] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
-D, [2014-03-01T17:08:08.377346 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:08:08.377971 #30336] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.378084 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:08:08.378259 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.378836 #30336] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:08:08.379251 #30336] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:08:08.382054 #30336] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:08:08.382897 #30336] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
-D, [2014-03-01T17:08:08.383224 #30336] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:08:08.383683 #30336] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2[0m  [["is_used", true]]
-D, [2014-03-01T17:08:08.383969 #30336] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:08:08.384855 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.385088 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T17:08:08.385277 #30336] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:08:08.386178 #30336] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T17:08:08.386984 #30336] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:08:08.387669 #30336] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:12:31.344919 #30427] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:12:31.345548 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:12:31.347651 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:12:31.348848 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:12:31.349179 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:12:31.349337 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:12:31.349600 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:12:31.405156 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:12:31.405339 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:12:31.405487 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:12:31.405612 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:12:31.405746 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:12:31.405861 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:12:31.405984 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:12:31.406098 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:12:31.406234 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:12:31.406827 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.406930 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:12:31.407052 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.414145 #30427] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:12:31.415357 #30427] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:12:31.420810 #30427] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:12:31.421931 #30427] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:12:31.422294 #30427] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:12:31.423259 #30427] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
-D, [2014-03-01T17:12:31.423585 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:12:31.424213 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.424350 #30427] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
-D, [2014-03-01T17:12:31.424469 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.425179 #30427] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:12:31.425680 #30427] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:12:31.428661 #30427] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:12:31.429529 #30427] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
-D, [2014-03-01T17:12:31.429872 #30427] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:12:31.430359 #30427] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2[0m  [["is_used", true]]
-D, [2014-03-01T17:12:31.430654 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:12:31.431399 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.431511 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:12:31.431660 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:12:31.432191 #30427] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T17:12:31.432776 #30427] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:12:31.433220 #30427] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:12:31.433480 #30427] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:12:31.434154 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:12:31.434268 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:12:31.434384 #30427] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:12:31.434639 #30427] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:17:25.086397 #30448] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:17:25.086933 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:17:25.088833 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:17:25.089977 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:17:25.090302 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:17:25.090455 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:17:25.090625 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:17:25.141343 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:17:25.141520 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:17:25.141643 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:17:25.141793 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:17:25.141913 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:17:25.142028 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:17:25.142131 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:17:25.142254 #30448] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:17:25.142364 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:17:25.142952 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.143069 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:17:25.143226 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.146790 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:17:25.147345 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.147453 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:17:25.147566 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.150397 #30448] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:17:25.150967 #30448] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:17:25.155474 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:17:25.156826 #30448] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
-D, [2014-03-01T17:17:25.157322 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
-D, [2014-03-01T17:17:25.158546 #30448] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
-D, [2014-03-01T17:17:25.158941 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:17:25.159499 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.159638 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:17:25.159759 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.160418 #30448] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:17:25.160849 #30448] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:17:25.163551 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:17:25.164343 #30448] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "2chanz"]]
-D, [2014-03-01T17:17:25.164704 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:17:25.165150 #30448] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2[0m  [["is_used", true]]
-D, [2014-03-01T17:17:25.165432 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:17:25.166141 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.166246 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:17:25.166377 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:17:25.166874 #30448] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T17:17:25.167417 #30448] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:17:25.167848 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:17:25.168042 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:17:25.168566 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
-D, [2014-03-01T17:17:25.168668 #30448] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:17:25.168797 #30448] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:17:25.169263 #30448] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
-D, [2014-03-01T17:17:25.169775 #30448] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
-D, [2014-03-01T17:17:25.170125 #30448] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
-D, [2014-03-01T17:17:25.170321 #30448] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
-D, [2014-03-01T17:22:35.382658 #30469] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
-D, [2014-03-01T17:22:35.383192 #30469] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
-D, [2014-03-01T17:22:35.385128 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
-D, [2014-03-01T17:22:35.386236 #30469] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
-D, [2014-03-01T17:22:35.386561 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-D, [2014-03-01T17:22:35.386714 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
-D, [2014-03-01T17:22:35.386853 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
-D, [2014-03-01T17:22:35.437787 #30469] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
-D, [2014-03-01T17:22:35.437976 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:22:35.438097 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
-D, [2014-03-01T17:22:35.438205 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
-D, [2014-03-01T17:22:35.438325 #30469] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
-D, [2014-03-01T17:22:35.438457 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
-D, [2014-03-01T17:22:35.438561 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
-D, [2014-03-01T17:22:35.438680 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
-D, [2014-03-01T17:22:35.438812 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
-D, [2014-03-01T17:22:35.439468 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.439592 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:22:35.439718 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.445789 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
-D, [2014-03-01T17:22:35.450438 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
-D, [2014-03-01T17:22:35.451688 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "yeezus"]]
-D, [2014-03-01T17:22:35.452101 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
-D, [2014-03-01T17:22:35.453015 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1  [["is_used", true]]
-D, [2014-03-01T17:22:35.453667 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
-D, [2014-03-01T17:22:35.454105 #30469] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
-D, [2014-03-01T17:22:35.454359 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:22:35.455167 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.455330 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:22:35.455450 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.456145 #30469] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:22:35.456655 #30469] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:22:35.459832 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
-D, [2014-03-01T17:22:35.460780 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email") VALUES (?)  [["email", "user@example.com"]]
-D, [2014-03-01T17:22:35.461130 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
-D, [2014-03-01T17:22:35.461578 #30469] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1  [["is_used", true]]
-D, [2014-03-01T17:22:35.461864 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:22:35.462380 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.462496 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:22:35.462618 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.463128 #30469] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
-D, [2014-03-01T17:22:35.463522 #30469] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2chanz"]]
-D, [2014-03-01T17:22:35.464080 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:22:35.464453 #30469] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "2chanz"]]
-D, [2014-03-01T17:22:35.464759 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:22:35.465179 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2  [["is_used", true]]
-D, [2014-03-01T17:22:35.465424 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
-D, [2014-03-01T17:22:35.465937 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.466040 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
-D, [2014-03-01T17:22:35.466162 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
-D, [2014-03-01T17:22:35.466627 #30469] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
-D, [2014-03-01T17:22:35.467139 #30469] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
-D, [2014-03-01T17:22:35.467495 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
-D, [2014-03-01T17:22:35.467667 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:22:35.468247 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.468348 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:22:35.468538 #30469] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.468748 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
-D, [2014-03-01T17:22:35.469210 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.469312 #30469] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
-D, [2014-03-01T17:22:35.469439 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
-D, [2014-03-01T17:22:35.469948 #30469] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "accountcode"], ["identifier", "2pac"]]
-D, [2014-03-01T17:22:35.470506 #30469] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1[0m
-D, [2014-03-01T17:22:35.470891 #30469] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'accountcode' LIMIT 1
-D, [2014-03-01T17:22:35.471104 #30469] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+# Logfile created on 2014-03-03 10:28:40 -0500 by logger.rb/44203
+D, [2014-03-03T10:28:40.508658 #33360] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255)) [0m
+D, [2014-03-03T10:28:40.509273 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255)) 
+D, [2014-03-03T10:28:40.511405 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE TABLE "invites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "is_used" boolean DEFAULT 'f', "code" varchar(255), "identifier" varchar(255)) [0m
+D, [2014-03-03T10:28:40.512535 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2014-03-03T10:28:40.512870 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2014-03-03T10:28:40.513033 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+D, [2014-03-03T10:28:40.513176 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('1')[0m
+D, [2014-03-03T10:28:40.538433 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM "users";
+D, [2014-03-03T10:28:40.538633 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T10:28:40.538784 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  DELETE FROM sqlite_sequence where name = 'users';
+D, [2014-03-03T10:28:40.538913 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM "accounts";[0m
+D, [2014-03-03T10:28:40.539046 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';
+D, [2014-03-03T10:28:40.539193 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mDELETE FROM sqlite_sequence where name = 'accounts';[0m
+D, [2014-03-03T10:28:40.539314 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "invites";
+D, [2014-03-03T10:28:40.539436 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+D, [2014-03-03T10:28:40.539596 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM sqlite_sequence where name = 'invites';
+D, [2014-03-03T10:28:40.542828 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.542960 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T10:28:40.543103 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.567289 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."identifier" = 'Doug.Butabi' LIMIT 1
+D, [2014-03-03T10:28:40.573125 #33360] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "590aEF0I1mtYSSPR0V5iXw"], ["identifier", "Doug.Butabi"]]
+D, [2014-03-03T10:28:40.577828 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T10:28:40.578798 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.578932 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T10:28:40.579060 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.579875 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T10:28:40.580533 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.580653 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T10:28:40.580774 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.581460 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.581913 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.582356 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.582775 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.583214 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.586099 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T10:28:40.587108 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "yeezus"]]
+D, [2014-03-03T10:28:40.587438 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T10:28:40.588429 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5  [["is_used", true]]
+D, [2014-03-03T10:28:40.589031 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1[0m
+D, [2014-03-03T10:28:40.589435 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T10:28:40.589697 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T10:28:40.590241 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.590359 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T10:28:40.590491 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.591011 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.591418 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.591829 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.592269 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.592663 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.593173 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1
+D, [2014-03-03T10:28:40.593565 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2paccode' LIMIT 1[0m
+D, [2014-03-03T10:28:40.593829 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  rollback transaction
+D, [2014-03-03T10:28:40.594398 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.594576 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  commit transaction
+D, [2014-03-03T10:28:40.594789 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.595648 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.596323 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.597022 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.597682 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.598287 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.598860 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1[0m
+D, [2014-03-03T10:28:40.599240 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'notbangbang' LIMIT 1
+D, [2014-03-03T10:28:40.599428 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T10:28:40.599844 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.599948 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T10:28:40.600064 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.600539 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.600941 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.601318 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.601753 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.602134 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.602922 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2014-03-03T10:28:40.603271 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.603388 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  commit transaction
+D, [2014-03-03T10:28:40.603505 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2014-03-03T10:28:40.603945 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.604339 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.604730 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.605116 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.605485 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.608205 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1[0m
+D, [2014-03-03T10:28:40.608549 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T10:28:40.609343 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email") VALUES (?)[0m  [["email", "user@example.com"]]
+D, [2014-03-03T10:28:40.609663 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T10:28:40.610134 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 1[0m  [["is_used", true]]
+D, [2014-03-03T10:28:40.610445 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'usercode' LIMIT 1
+D, [2014-03-03T10:28:40.611155 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T10:28:40.611583 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "accounts" ("username") VALUES (?)  [["username", "2chanz"]]
+D, [2014-03-03T10:28:40.611929 #33360] DEBUG -- :   [1m[36mInvite Load (0.1ms)[0m  [1mSELECT "invites".* FROM "invites" WHERE "invites"."code" = '2chanzcode' LIMIT 1[0m
+D, [2014-03-03T10:28:40.612467 #33360] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  UPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 2  [["is_used", true]]
+D, [2014-03-03T10:28:40.612784 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T10:28:40.613499 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.613634 #33360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T10:28:40.613756 #33360] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.614385 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.614782 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.615178 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.615568 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.615951 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.616471 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'bar' LIMIT 1
+D, [2014-03-03T10:28:40.626366 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+D, [2014-03-03T10:28:40.626936 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.627110 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+D, [2014-03-03T10:28:40.627333 #33360] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2014-03-03T10:28:40.628208 #33360] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "usercode"], ["identifier", "user@example.com"]]
+D, [2014-03-03T10:28:40.628705 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "2chanzcode"], ["identifier", "2chanz"]]
+D, [2014-03-03T10:28:40.629169 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "2paccode"], ["identifier", "2pac"]]
+D, [2014-03-03T10:28:40.629549 #33360] DEBUG -- :   [1m[35mSQL (0.0ms)[0m  INSERT INTO "invites" ("code", "identifier") VALUES (?, ?)  [["code", "bangbang"], ["identifier", "chiefkeef"]]
+D, [2014-03-03T10:28:40.629943 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "invites" ("code", "identifier") VALUES (?, ?)[0m  [["code", "kimk"], ["identifier", "yeezus"]]
+D, [2014-03-03T10:28:40.630736 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T10:28:40.631149 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "accounts" ("username") VALUES (?)[0m  [["username", "yeezus"]]
+D, [2014-03-03T10:28:40.631446 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T10:28:40.631902 #33360] DEBUG -- :   [1m[36mSQL (0.0ms)[0m  [1mUPDATE "invites" SET "is_used" = ? WHERE "invites"."id" = 5[0m  [["is_used", true]]
+D, [2014-03-03T10:28:40.632197 #33360] DEBUG -- :   [1m[35mInvite Load (0.1ms)[0m  SELECT "invites".* FROM "invites" WHERE "invites"."code" = 'kimk' LIMIT 1
+D, [2014-03-03T10:28:40.632453 #33360] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m

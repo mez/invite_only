@@ -6,9 +6,7 @@ require 'invite_only'
 require 'rspec/rails'
 require 'rails'
 
-config = YAML::load(IO.read(File.join(File.dirname(__FILE__), 'database.yml')))
 ActiveRecord::Base.logger = Logger.new(File.join(File.dirname(__FILE__), "debug.log"))
-#ActiveRecord::Base.establish_connection(config[ENV['DB'] || 'sqlite'])
 ActiveRecord::Base.establish_connection(:adapter => 'sqlite3',:database => ':memory:')
 
 
@@ -37,6 +35,9 @@ RSpec.configure do |config|
   end
 
   config.infer_base_class_for_anonymous_controllers = true
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
 
 # Setup a test app

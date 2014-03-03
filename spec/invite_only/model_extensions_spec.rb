@@ -29,6 +29,11 @@ end
 class Account < ActiveRecord::Base
   attr_accessor :invite_code
   invite_only(:username)
+
+  protected
+  def code_blank_message
+    'code is blank'
+  end
 end
 
 class Invite < ActiveRecord::Base
@@ -37,61 +42,58 @@ end
 #let test a few things
 describe InviteOnly do
 
-  #let make sure when new invite record is created is_used=false
-  describe 'Creating a new Invite means it is not used yet' do
-    before { @invite = Invite.new }
-    it { @invite.is_used.should == false }
+  describe 'model_extension' do
+    context 'when a new invite is created' do
+      let(:invite) { Invite.new }
+      it { expect(invite.is_used).to be false }
+    end
+
+    context 'when validating a model that used invite only' do
+      before do
+        Invite.create! code:'usercode', identifier:'user@example.com'
+        Invite.create! code:'2chanzcode', identifier:'2chanz'
+        Invite.create code:'2paccode', identifier:'2pac'
+        Invite.create code:'bangbang', identifier:'chiefkeef'
+        Invite.create code:'kimk', identifier:'yeezus'
+      end
+
+
+      it 'should use the identifier used to init invite_only' do
+        expect(User.create(email:'user@example.com', invite_code:'usercode')).to be_valid
+        expect(Account.create(username:'2chanz', invite_code:'2chanzcode')).to be_valid
+      end
+
+      it 'should not validate with correct invite_code but different identifier' do
+        #sorry 2chanz but this invite was for 2pac.
+        expect(Account.create(username:'2chanz', invite_code:'2paccode')).not_to be_valid
+      end
+
+      it 'should not validate with different invite_code but correct identifier' do
+        #sorry chiefkeef but you have wrong invite code
+        expect(Account.create(username:'chiefkeef', invite_code:'notbangbang')).not_to be_valid
+      end
+
+      it 'should only used once.' do
+        #yeezus should be good to go
+        expect(Account.create(username:'yeezus', invite_code:'kimk')).to be_valid
+         #not so fast ray j
+        expect(Account.create(username:'ray-j', invite_code:'kimk')).not_to be_valid
+      end
+
+      it 'should have errors when not valid' do
+        expect(Account.create(username:'foo', invite_code:'bar').errors.count).to eq(1)
+      end
+
+      it 'should show the correct error message on blank invite_code' do
+        #[:invite_code, ["code is blank"]] is the error message format
+        expect(Account.create(username:'chiefkeef', invite_code:'').errors.messages.first.last.first).to eq('code is blank')
+      end
+
+      it 'should set is_used to true after create' do
+        Account.create(username:'yeezus', invite_code:'kimk')
+        expect(Invite.find_by(code:'kimk').is_used).to be true
+      end
+    end
   end
-
-
-  describe 'User and Account Should Be Valid on Save with correct Code and Identifier' do
-    before do
-      Invite.create! code:'usercode', identifier:'user@example.com'
-      Invite.create! code:'accountcode', identifier:'2chanz'
-    end
-
-    it "creates user when correct code and identifier is used" do
-      User.create(email:'user@example.com', invite_code:'usercode').should be_valid
-    end
-
-    it "creates account when correct code and identifier is used" do
-      Account.create(username:'2chanz', invite_code:'accountcode').should be_valid
-    end
-  end
-
-  describe 'Invite Not Valid on Create with Correct Code but different Identifier' do
-    before do
-      @invite_account = Invite.create code:'accountcode', identifier:'2pac'
-    end
-
-    #sorry 2chanz but this invite was for 2pac.
-    it { Account.create(username:'2chanz', invite_code:'accountcode').should_not be_valid }
-  end
-
-  describe 'Invite Not Valid on Create with Different Code but Correct Identifier' do
-    before do
-      @invite_account = Invite.create code:'bangbang', identifier:'chiefkeef'
-    end
-
-    #sorry 2pac but you have wrong invite code
-    it { Account.create(username:'chiefkeef', invite_code:'notbangbang').should_not be_valid }
-  end
-
-
-  describe 'Invite can only be used once' do
-    before do
-      @invite_account = Invite.create code:'kimk', identifier:'yeezus'
-    end
-
-    #sorry 2chanz but this invite was for 2pac.
-    it do
-      #yeezus should be good to go
-      Account.create(username:'yeezus', invite_code:'kimk').should be_valid
-      #not so fast ray j
-      Account.create(username:'ray-j', invite_code:'kimk').should_not be_valid
-    end
-  end
-
-
 end
 

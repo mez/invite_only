@@ -6,7 +6,7 @@ module InviteOnly
       self.class_eval do
         helper_method :create_invite_code_for
 
-        private
+        protected
         #use this helper to generate the code you need to hand off to the person
         #identifier can be anything that IDs the person i.e. Email|Username etc...
         #identifier: type=string
