@@ -16,17 +16,21 @@ Installation
 invite_only is tested for Rails 3.2 and up.
 
 To use it, add it to your Gemfile:
-    ```sh
-    gem 'invite_only'
+  ```sh
+  gem 'invite_only'
+  ```
 
-    bundle install
-    ```
+  ```sh
+  bundle install
+  ```
 Run the generator to create the migration
-    ```sh
-    rails g inviter
+  ```sh
+  rails g inviter
+  ```
 
-    rake db:migrate
-    ```
+  ```sh
+  rake db:migrate
+  ```
 
 Getting started
 ===============
@@ -46,6 +50,7 @@ Add the enable_invite_only to a controller to get the helper method you need to 
   end
 ```
 Now you will have a helper method called 'create_invite_code_for(identifier)'. The identifier is the string you use to uniquely identify the model. For example a User.email or User.username. Any string you want to id with. For example..
+
 ```ruby
   code = create_invite_code_for('foo@bar.com')
 ```
@@ -53,21 +58,21 @@ Now you will have a helper method called 'create_invite_code_for(identifier)'. T
 Calling invite_only on your model
 -------------------
 ```ruby
-    class User < ActiveRecord::Base
-      invite_only(:email)
-    end
+  class User < ActiveRecord::Base
+    invite_only(:email)
+  end
 ```
 
 'invite_only(identifier=:email)' used in the model. Here identifier is the column the model uses as the identifier. invite_only defaults to :email, but in case you want to use for example :username or anything you like you can. This is used during the validation as the attribute to use for look up.
 
 Adding virtual attribute :invite_only
 -------------------
-    ```ruby
-    class User < ActiveRecord::Base
-      invite_only(:email)
-      attr_accessor :invite_code
-    end
-    ```
+```ruby
+  class User < ActiveRecord::Base
+    invite_only(:email)
+    attr_accessor :invite_code
+  end
+```
 
 Thats it! Now whenever you try to save an invite_only model, it will not work unless you have the correct :invite_code. How you pass the value to the model is up to you. Simply just add the text field for the code in the form_for the model you are interested in.
 
@@ -87,24 +92,29 @@ attr_writer :code_blank_message,
 
 
 The default validation error messages you get out of the box are.
-
+-----------------------------------------------------------------------------------------
 | attribute name                    | Default                                           |
+-----------------------------------------------------------------------------------------
 | :code_blank_message               | "is missing."                                     |
+-----------------------------------------------------------------------------------------
 | :code_invalid_message             | "does not work with that #{identifier.to_s}."     |
+-----------------------------------------------------------------------------------------
 | :code_identifier_invalid_message  | "is not valid."                                   |
+-----------------------------------------------------------------------------------------
 | :code_already_used_message        | "has already been used."                          |
+-----------------------------------------------------------------------------------------
 
 An example of setting your own error message is below
 
 ```ruby
-    class User < ActiveRecord::Base
-      invite_only(:email)
+  class User < ActiveRecord::Base
+    invite_only(:email)
 
-      protected
-      def code_blank_message
-        'code is blank'
-      end
+    protected
+    def code_blank_message
+      'code is blank'
     end
+  end
 ```
 
 
