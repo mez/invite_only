@@ -28,10 +28,6 @@ Run the generator to create the migration
   rails g inviter
   ```
 
-  ```sh
-  rake db:migrate
-  ```
-
 Getting started
 ===============
 There are three steps to get your app going with invite_only:

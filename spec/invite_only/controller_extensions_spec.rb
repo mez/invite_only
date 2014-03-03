@@ -10,7 +10,6 @@ class RoxburyController < ActionController::Base
   enable_invite_only
 end
 
-
 describe RoxburyController, type: :controller do
 
   context 'when call the create_invite_code_for' do
