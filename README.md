@@ -1,7 +1,7 @@
 Invite Only
 ==============
 
-[![Build Status](https://travis-ci.org/Mez/invite_only.png)](https://travis-ci.org/mez/invite_only)
+[![Build Status](https://travis-ci.org/mez/invite_only.png?branch=master)](https://travis-ci.org/mez/invite_only)
 
 
 This gem was inspired by acts_as_tenant. I really liked the fail-safe and out-of-the-way manner of acts_as_tenant! Hence, this is a very low level abstraction layer to help deal with invites to your applications and integrates (near) seamless with Rails.
