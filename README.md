@@ -6,7 +6,7 @@ Invite Only
 
 This gem was inspired by acts_as_tenant. I really liked the fail-safe and out-of-the-way manner of acts_as_tenant! Hence, this is a very low level abstraction layer to help deal with invites to your applications and integrates (near) seamless with Rails.
 
-In addition, acts_as_tenant:
+In addition, invite_only:
 
 * auto validates on create for any model that you want invite only for.
 * sets up a helper method to allow you to create invite codes.
